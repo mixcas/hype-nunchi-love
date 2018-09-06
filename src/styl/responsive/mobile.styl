@@ -1,0 +1,167 @@
+// LOGIN
+
+.black-logo
+  height: 1.4em
+
+// LOADING
+
+#loading-overlay
+  z-index: 1000
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background-color: rgba(255, 255, 255, 0.8)
+  opacity: 0
+  pointer-events: none
+  &.loading
+    opacity: 1
+    pointer-events: all
+
+// HEADER
+
+#header
+  background-color: $color-header
+
+.logo-wrapper
+  line-height: 0
+
+.logo
+  height: 1.4em
+  fill: $color-white
+
+// LIST
+
+// Reset button styles
+button
+  appearance: none
+  background-color: transparent
+  border: 0
+  padding: 0
+
+// Button styles
+.button,
+a.button
+  background-color: $color-button-default
+  color: $color-white
+  border-radius: 5px
+  padding: ($margin-small*0.8) $margin-small
+  display: inline-block
+  cursor: pointer
+  &.button-small
+    padding: ($margin-tiny*0.8) $margin-tiny
+  &.button-delete
+    background-color: $color-button-warning
+  &:disabled
+    background-color: $color-button-disabled
+    cursor: default;
+
+.list-rows-holder
+  > *
+    &:nth-child(odd)
+      background-color: $color-table-light
+    &:nth-child(even)
+      background-color: $color-table-dark
+
+.list-rows-item
+  min-height: 4em
+
+// FORM
+
+.button-row
+  .grid-item
+    padding-left: 0 !important
+
+.card
+  padding: $margin-small
+  border: 1px solid $color-form-border
+  border-radius: 5px
+  height: 100%
+  display: flex
+  flex-direction: column
+
+.card-body
+  flex-grow: 1
+
+.card-actions
+  padding-top: $margin-small
+  flex-shrink: 0
+  text-align: right
+
+.dropzone
+  padding: $margin-small
+  border: 1px dashed $color-form-border
+  border-radius: 5px
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+
+input, select, textarea
+  appearance: none
+  background-color: $color-white
+  color: $color-black
+  border: 1px solid $color-form-border
+  border-radius: 5px
+  padding: $margin-small
+  width: 100%
+
+textarea
+  resize: vertical
+
+.select-wrapper
+  position: relative
+  display: block
+  width: 100%
+  pointer-events: all
+  &:after
+    content: '▼'
+    position: absolute
+    top: $margin-small
+    right: $margin-small
+
+// Datepicker Fixes
+// This is a temporary fix while it gets fixed
+.react-datepicker-popper
+  z-index: 500
+
+.react-datepicker__time-list
+  padding-right: 0 !important
+
+.react-datepicker-wrapper, .react-datepicker__input-container
+  display: block !important
+
+// Checkbox & Radio
+input[type='checkbox'], input[type='radio']
+  margin: 0 $margin-tiny $margin-micro 0
+  width: $margin-small
+  height: $margin-small
+  &:checked
+    background-color: $color-button-default
+
+// Editor (wysiwyg) styles
+.DraftEditor-editorContainer
+  z-index: 0 !important
+
+.rdw-editor-toolbar, .rdw-option-wrapper, .rdw-editor-main
+  border: 1px solid $color-form-border !important
+
+.rdw-editor-toolbar
+  border-radius: 5px 5px 0 0 !important
+  margin-bottom: 0 !important
+
+.rdw-editor-main
+  border-top-width: 0 !important
+  border-radius: 0 0 5px 5px !important
+  margin-bottom: 0 !important
+  min-height: 300px
+  padding: 0 1em
+
+.rdw-link-decorator-wrapper
+  text-decoration: underline
+  color: blue
+
+*:disabled
+  opacity: 0.5

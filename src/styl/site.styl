@@ -1,0 +1,202 @@
+@import '~kouto-swiss/index.styl'
+@import '~globie-styl-library/helpers'
+
+// ******************************************************
+
+// RESETS
+
+meyer-reset()
+box-sizing-reset()
+normalize()
+
+// ******************************************************
+
+// GRID
+
+@import '~globie-styl-library/grid'
+
+// ******************************************************
+
+// FONTS
+@import 'fonts/fonts'
+
+$font-sans = font-stack('Lato')
+$font-serif = font-stack('Georgia')
+
+// ******************************************************
+
+// TYPOGRAPHY
+
+@import '~globie-styl-library/type'
+
+$font-size-larger = 1.3rem
+
+$font-leading-basic = 1.35
+$font-leading-tighter = 1.15
+$font-leading-larger = 1.45
+
+$font-tracking-basic = .001em
+$font-tracking-wider = .05em
+
+html
+  font-family: $font-sans
+  letter-spacing: $font-tracking-basic
+
+body
+  line-height: $font-leading-basic
+
+.font-sans
+  font-family: $font-sans
+
+.font-serif
+  font-family: $font-serif
+
+.font-larger
+  font-size: $font-size-larger
+
+.line-tighter
+  line-height: $font-leading-tighter
+
+.line-larger
+  line-height: $font-leading-larger
+
+// ******************************************************
+
+// VARIABLES
+
+// COLORS
+
+$color-black = rgb(0, 0, 0)
+$color-white = rgb(255, 255, 255)
+
+$color-header = rgb(74, 74, 74)
+
+$color-form-border = rgb(155, 155, 155)
+
+// BUTTONS
+
+$color-button-default = rgb(0, 155, 255)
+$color-button-busy = rgb(115, 200, 255)
+$color-button-disabled = rgb(210, 210, 210)
+$color-button-warning = rgb(216, 72, 48)
+
+// TABLE ROWS
+
+$color-table-light = rgb(240, 240, 240)
+$color-table-dark = rgb(230, 230, 230)
+
+// ALERTS
+
+$color-alert-warning = rgb(255, 251, 204)
+$color-alert-error = rgb(255, 204, 204)
+$color-alert-success = rgb(204, 255, 230)
+$color-alert-notice = rgb(204, 235, 255)
+
+// ******************************************************
+
+// BASIC
+
+html
+  color: $color-black
+  background-color: $color-white
+
+img
+  height: auto
+  max-width: 100%
+  display: block
+
+.mobile-only
+  display: initial !important
+
+.desktop-only
+  display: none !important
+
+.font-color-white
+  color: $color-white
+
+a:link
+  text-decoration-skip: ink
+
+// ******************************************************
+
+// MEDIA QUERIES
+
+$gutter = 14px
+
+$margin-micro = ($gutter / 3)
+$margin-tiny = ($gutter / 2)
+$margin-small = ($gutter)
+$margin-basic = ($gutter * 2)
+$margin-mid = ($gutter * 3.5)
+$margin-large = ($gutter * 5)
+
+$font-size-basic = 12px
+$font-size-large = $font-size-basic * 1.5
+$font-size-small = $font-size-basic * .8
+
+grid-maker(96%, $gutter, s, 24)
+
+space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
+
+font-sizes($font-size-basic, false, $font-size-large, false, $font-size-small, false)
+
+@import 'responsive/mobile'
+
+@media screen and (min-width: 720px)
+
+  $gutter = 21px
+
+  $margin-micro = ($gutter / 3)
+  $margin-tiny = ($gutter / 2)
+  $margin-small = ($gutter)
+  $margin-basic = ($gutter * 2)
+  $margin-mid = ($gutter * 3.5)
+  $margin-large = ($gutter * 5)
+
+  $font-size-basic = 17px
+  $font-size-large = $font-size-basic * 1.5
+  $font-size-small = $font-size-basic * .8
+
+  space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
+
+  grid-maker(96%, $gutter, m, 24)
+
+  font-sizes($font-size-basic, false, $font-size-large, false, $font-size-small, false)
+
+  .mobile-only
+  	display: none !important
+
+  @import 'responsive/tablet-portrait'
+
+@media screen and (min-width: 1024px)
+
+  $gutter = 24px
+
+  $margin-micro = ($gutter / 3)
+  $margin-tiny = ($gutter / 2)
+  $margin-small = ($gutter)
+  $margin-basic = ($gutter * 2)
+  $margin-mid = ($gutter * 3.5)
+  $margin-large = ($gutter * 5)
+
+  grid-maker(96%, $gutter, l, 24)
+
+  space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
+
+  .desktop-only
+    display: initial !important
+
+  @import 'responsive/tablet-landscape'
+
+@media screen and (min-width: 1280px)
+
+  $font-size-basic = 21px
+  $font-size-large = $font-size-basic * 1.5
+  $font-size-small = $font-size-basic * .8
+
+  grid-maker(1200px, $gutter, xl, 24)
+
+
+  font-sizes($font-size-basic, false, $font-size-large, false, $font-size-small, false)
+
+  @import 'responsive/laptop'

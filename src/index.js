@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import store, { history } from './store.js';
 
-import './index.css';
+import './styl';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 

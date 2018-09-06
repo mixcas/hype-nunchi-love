@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
 
-// Components
+import Routes from './routes';
+import Header from './Header';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Route exact path="/" component={() => 'Hola'} />
-      </div>
+      <main>
+        <Header />
+
+        <div>
+          <Routes />
+        </div>
+
+        <footer>
+        </footer>
+      </main>
     );
   }
 }

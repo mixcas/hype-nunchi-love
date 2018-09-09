@@ -28,12 +28,12 @@ export class LoginForm extends Component {
 	}
 
 	login() {
-		const { email, username, password, passwordConfirm } = this.state;
+		const { signup, email, username, password, passwordConfirm } = this.state;
 
 		this.setState({ isLoading: true });
 
     // SINGUP
-    if (this.state.signup) {
+    if (signup) {
       this.props.firebase
         .createUser({
           email,
@@ -77,16 +77,18 @@ export class LoginForm extends Component {
   }
 
 	render() {
+    const { signup, error, loading } = this.state;
+
 		return (
 			<section className='container'>
 				<div className='grid-row margin-top-basic margin-bottom-small'>
 					<div className='grid-item item-s-24'>
-						<h1>{ this.state.signup ? 'Signup' : 'Login' }</h1>
+						<h1>{ signup ? 'Signup' : 'Login' }</h1>
 					</div>
 				</div>
         <form onSubmit={event => event.preventDefault()} className='grid-row margin-bottom-basic'>
           <div className='grid-item item-s-24 margin-bottom-micro no-gutter'>
-          { this.state.signup ?
+          { signup ?
             <div className='grid-item item-s-24 margin-bottom-tiny no-gutter'>
               <input
                 ref={ ref => this.username = ref}
@@ -109,11 +111,11 @@ export class LoginForm extends Component {
               ref={ ref => this.password = ref}
               type='password'
               placeholder='password'
-              autoComplete={ this.state.signup ? '' : 'current-password'}
+              autoComplete={ signup ? '' : 'current-password'}
               onChange={event => this.setState({ password: event.target.value })}
             />
           </div>
-          { this.state.signup ?
+          { signup ?
             <div className='grid-item item-s-24 margin-bottom-tiny no-gutter'>
               <input
                 ref={ ref => this.passwordConfirm = ref}
@@ -124,19 +126,19 @@ export class LoginForm extends Component {
             </div>
           : null }
           <div className='grid-item item-s-12 margin-bottom-tiny no-gutter'>
-            <button className='font-size-small color-grey-mid link-underline' onClick={() => this.toggleSignup()}>{this.state.signup ? 'Login' : 'Signup'}</button>
+            <button className='font-size-small color-grey-mid link-underline' onClick={() => this.toggleSignup()}>{signup ? 'Login' : 'Signup'}</button>
           </div>
           <div className='grid-item item-s-12 margin-bottom-tiny text-align-right'>
             <Link id="link-forgot-password" className='font-size-small color-grey-mid link-underline' to={'/forgotpassword'}>Forgot password?</Link>
           </div>
           <div className='grid-item item-s-8 offset-s-16 text-align-center no-gutter'>
             <button onClick={() => this.login()} className='font-size-large'>
-              Login
+              {signup ? 'Signup' : 'Login' }
             </button>
           </div>
           <div className='grid-item item-s-24'>
-            <span>{this.state.error.message}</span>
-            <span>{this.state.loading}</span>
+            <span>{error.message}</span>
+            <span>{loading}</span>
           </div>
         </form>
       </section>

@@ -41,6 +41,10 @@ export class LoginForm extends Component {
         }, {
           username,
           email,
+          roles: {
+            admin: false,
+            influencer: false,
+          }
         })
         .then(() => {
           this.setState({ isLoading: false })

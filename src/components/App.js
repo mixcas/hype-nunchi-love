@@ -2,7 +2,8 @@ import React from 'react';
 
 // import Routes from '../components/routes';
 import Header from '../containers/Header';
-import MainContainer from '../containers/MainContainer.js';
+import MainContainer from '../containers/MainContainer';
+import LoginContainer from '../containers/LoginContainer';
 
 const App = () => (
   <main>
@@ -10,6 +11,7 @@ const App = () => (
     <MainContainer />
     <footer>
     </footer>
+    <LoginContainer />
   </main>
 );
 

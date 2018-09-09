@@ -21,18 +21,6 @@ const MainContainer = (props) => {
     )
   }
 
-  // Not logged in
-  if (isEmpty(auth)) {
-    return (
-      <Switch>
-        <Route exact path='/' component={() => 'Top and stuff'} />
-        <Route exact path='/login' component={Login} />
-        <Route component={NoMatch}/>
-      </Switch>
-    );
-  }
-
-  // Is logged in
   return (
     <Switch>
       <Route exact path='/' component={() => 'Top and stuff'} />

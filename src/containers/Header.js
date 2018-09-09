@@ -4,7 +4,9 @@ import { compose } from 'redux';
 import { firebaseConnect, isEmpty } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 
-const Header = ({ firebase, auth , profile }) => (
+import { showLoginModal } from '../actions/AuthActions';
+
+const Header = ({ firebase, auth , profile, showLoginModal }) => (
   <header className="container">
     <div className="grid-row">
       <div className="grid-item item-s-6">
@@ -12,9 +14,9 @@ const Header = ({ firebase, auth , profile }) => (
       </div>
       { !isEmpty(auth) ?
       <div className="grid-item item-s-6">
-        <button onClick={() => firebase.logout()} >Logout</button>
+        <button onClick={() => firebase.logout()}>Logout</button>
       </div>
-      : <Link to='/login' className='link-underline'>Login</Link> }
+          : <button onClick={() => showLoginModal()}>Login</button> }
     </div>
   </header>
 );
@@ -25,6 +27,7 @@ const maptStateToProps = ({firebase: { auth, profile }}) => ({
 });
 
 const mapDipatchToProps = dispatch => ({
+  showLoginModal: () => dispatch(showLoginModal()),
 });
 
 export default compose(

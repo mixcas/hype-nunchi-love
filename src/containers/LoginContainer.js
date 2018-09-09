@@ -1,7 +1,7 @@
 import React from 'react';
-import { compose, bindActionCreators } from 'redux';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { firebaseConnect, isEmpty, getVal } from 'react-redux-firebase';
+import { firebaseConnect, getVal } from 'react-redux-firebase';
 
 import { hideLoginModal } from '../actions/AuthActions';
 
@@ -10,7 +10,7 @@ import Modal from '../components/Modal';
 import Login from '../components/Login/Login';
 
 const LoginContainer = (props) => {
-  const { auth, show, hideLoginModal } = props;
+  const { show, hideLoginModal } = props;
 
   // Not logged in
   return (

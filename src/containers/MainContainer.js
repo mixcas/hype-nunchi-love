@@ -2,12 +2,10 @@ import React from 'react';
 import { compose } from 'redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
+import { firebaseConnect, isLoaded, getVal } from 'react-redux-firebase';
 
 // import Routes from '../components/routes';
-import Login from '../components/Login/Login';
 import NoMatch from '../components/NoMatch';
-
 
 const MainContainer = (props) => {
   const { auth } = props;

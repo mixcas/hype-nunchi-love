@@ -1,25 +1,9 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { firebaseConnect, isEmpty } from 'react-redux-firebase';
-import { Link } from 'react-router-dom';
+import { firebaseConnect } from 'react-redux-firebase';
 
 import { showLoginModal } from '../actions/AuthActions';
-
-const Header = ({ firebase, auth , profile, showLoginModal }) => (
-  <header className="container">
-    <div className="grid-row">
-      <div className="grid-item item-s-6">
-        <h1>Nunchi</h1>
-      </div>
-      { !isEmpty(auth) ?
-      <div className="grid-item item-s-6">
-        <button onClick={() => firebase.logout()}>Logout</button>
-      </div>
-          : <button onClick={() => showLoginModal()}>Login</button> }
-    </div>
-  </header>
-);
+import Header from '../components/Header';
 
 const maptStateToProps = ({firebase: { auth, profile }}) => ({
   auth,

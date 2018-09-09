@@ -5,12 +5,11 @@ import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
 
 // import Routes from '../components/routes';
-import Header from '../containers/Header';
 import Login from '../components/Login/Login';
 import NoMatch from '../components/NoMatch';
 
 
-const App = (props) => {
+const MainContainer = (props) => {
   const { auth } = props;
 
   // Is loading
@@ -25,34 +24,20 @@ const App = (props) => {
   // Not logged in
   if (isEmpty(auth)) {
     return (
-      <main>
-        <Header />
-        <div>
-          <Switch>
-            <Route exact path='/' component={() => 'Top and stuff'} />
-            <Route exact path='/login' component={Login} />
-            <Route component={NoMatch}/>
-          </Switch>
-        </div>
-        <footer>
-        </footer>
-      </main>
+      <Switch>
+        <Route exact path='/' component={() => 'Top and stuff'} />
+        <Route exact path='/login' component={Login} />
+        <Route component={NoMatch}/>
+      </Switch>
     );
   }
 
   // Is logged in
   return (
-    <main>
-      <Header />
-      <div>
-        <Switch>
-          <Route exact path='/' component={() => 'Top and stuff'} />
-          <Route component={NoMatch}/>
-        </Switch>
-      </div>
-      <footer>
-      </footer>
-    </main>
+    <Switch>
+      <Route exact path='/' component={() => 'Top and stuff'} />
+      <Route component={NoMatch}/>
+    </Switch>
   );
 };
 
@@ -68,4 +53,4 @@ export default compose(
   connect(
     maptStateToProps,
   ),
-)(App);
+)(MainContainer);

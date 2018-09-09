@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const Header = () => (
+const Header = (auth = false) => (
   <header className="container">
-    <div class="grid-row">
-      <div class="grid-item item-s-3">
+    <div className="grid-row">
+      <div className="grid-item item-s-6">
         <h1>Nunchi</h1>
       </div>
+      { auth !== false ?
+      <div className="grid-item item-s-6">
+        <h1>Logout</h1>
+      </div>
+      : null }
     </div>
   </header>
 );

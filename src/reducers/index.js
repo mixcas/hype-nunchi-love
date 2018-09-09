@@ -1,9 +1,10 @@
-import { combineReducers } from 'redux'
-
+import { combineReducers } from 'redux';
+import { firebaseReducer } from 'react-redux-firebase';
 
 // Reducers
 
 const appReducer = combineReducers({
+  firebase: firebaseReducer,
 })
 
 // Setup root reducer

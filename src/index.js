@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import store, { history } from './store.js';
 
 import './styl';
-import App from './components/App';
+import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(

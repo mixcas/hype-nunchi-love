@@ -2,13 +2,13 @@ import React from 'react';
 import { compose } from 'redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { firebaseConnect, isLoaded, getVal } from 'react-redux-firebase';
+import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
 
 // import Routes from '../components/routes';
 import NoMatch from '../components/NoMatch';
 
 const MainContainer = (props) => {
-  const { auth } = props;
+  const { auth, profile } = props;
 
   // Is loading
   if (!isLoaded(auth)) {
@@ -22,6 +22,9 @@ const MainContainer = (props) => {
   return (
     <Switch>
       <Route exact path='/' component={() => 'Top and stuff'} />
+      { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?
+        <Route exact path='/admin' component={() => 'Admin and stuff'} />
+      : null }
       <Route component={NoMatch}/>
     </Switch>
   );

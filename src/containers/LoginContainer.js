@@ -24,7 +24,7 @@ const maptStateToProps = ({ firebase, auth }) => ({
   authError: getVal(firebase, 'authError'),
   auth: getVal(firebase, 'auth'),
   profile: getVal(firebase, 'profile'),
-  show: auth.showLoginModal,
+  show: auth.showModal,
 });
 
 const mapDispatchToprops = dispatch => ({

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { isEmpty } from 'react-redux-firebase';
+import {  isLoaded, isEmpty } from 'react-redux-firebase';
+import { Link } from 'react-router-dom';
 
 import StrokedText from './styled/StrokedText';
 
@@ -12,9 +13,14 @@ const Header = ({ firebase, auth , profile, showLoginModal }) => (
           <StrokedText italic={true}>Nunchi Hype</StrokedText>
         </div>
       </div>
-      <div className="grid-item item-s-6 no-gutter grid-row justify-end">
-        <div className="grid-item item-s-12 no-gutter grid-row">
-        { !isEmpty(auth) ?
+      <div className="grid-item item-s-12 no-gutter grid-row justify-end">
+        { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?
+          <div className="grid-item text-align-center">
+            <Link to={'/admin'}>Admin</Link>
+          </div>
+        : null }
+        <div className="grid-item text-align-center">
+        { isLoaded(auth) && !isEmpty(auth) ?
           <button onClick={() => firebase.logout()}>Logout</button>
         : <button onClick={() => showLoginModal()}>Login</button> }
         </div>

@@ -19,17 +19,14 @@
     opacity: 1
     pointer-events: all
 
+// UNDERLINE
+.link-underline
+  @extend a.link-underline
+
 // HEADER
 
 #header
   background-color: $color-header
-
-.logo-wrapper
-  line-height: 0
-
-.logo
-  height: 1.4em
-  fill: $color-white
 
 // LIST
 
@@ -121,47 +118,3 @@ textarea
     position: absolute
     top: $margin-small
     right: $margin-small
-
-// Datepicker Fixes
-// This is a temporary fix while it gets fixed
-.react-datepicker-popper
-  z-index: 500
-
-.react-datepicker__time-list
-  padding-right: 0 !important
-
-.react-datepicker-wrapper, .react-datepicker__input-container
-  display: block !important
-
-// Checkbox & Radio
-input[type='checkbox'], input[type='radio']
-  margin: 0 $margin-tiny $margin-micro 0
-  width: $margin-small
-  height: $margin-small
-  &:checked
-    background-color: $color-button-default
-
-// Editor (wysiwyg) styles
-.DraftEditor-editorContainer
-  z-index: 0 !important
-
-.rdw-editor-toolbar, .rdw-option-wrapper, .rdw-editor-main
-  border: 1px solid $color-form-border !important
-
-.rdw-editor-toolbar
-  border-radius: 5px 5px 0 0 !important
-  margin-bottom: 0 !important
-
-.rdw-editor-main
-  border-top-width: 0 !important
-  border-radius: 0 0 5px 5px !important
-  margin-bottom: 0 !important
-  min-height: 300px
-  padding: 0 1em
-
-.rdw-link-decorator-wrapper
-  text-decoration: underline
-  color: blue
-
-*:disabled
-  opacity: 0.5

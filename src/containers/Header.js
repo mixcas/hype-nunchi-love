@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { firebaseConnect } from 'react-redux-firebase';
+import { firebaseConnect, getVal } from 'react-redux-firebase';
 
 import { showLoginModal } from '../actions/AuthActions';
 import Header from '../components/Header';
 
-const maptStateToProps = ({firebase: { auth, profile }}) => ({
-  auth,
-  profile,
+const maptStateToProps = ({firebase}) => ({
+  auth: getVal(firebase, 'auth'),
+  profile: getVal(firebase, 'profile')
 });
 
 const mapDipatchToProps = dispatch => ({

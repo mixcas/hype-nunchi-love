@@ -92,25 +92,27 @@ export class LoginForm extends Component {
 				</div>
         <form onSubmit={event => event.preventDefault()} className='grid-row margin-bottom-basic'>
           <div className='grid-item item-s-24 margin-bottom-micro no-gutter'>
-          { signup ?
-            <div className='grid-item item-s-24 margin-bottom-tiny no-gutter'>
+            { signup ?
+              <div className='grid-item item-s-24 margin-bottom-tiny'>
+                <input
+                  ref={ ref => this.username = ref}
+                  type='text'
+                  placeholder='username'
+                  onChange={event => this.setState({ username: event.target.value })}
+                />
+              </div>
+            : null }
+            <div className='grid-item item-s-24 margin-bottom-tiny'>
               <input
-                ref={ ref => this.username = ref}
+                ref={ ref => this.email = ref}
                 type='text'
-                placeholder='username'
-                onChange={event => this.setState({ username: event.target.value })}
+                placeholder='email'
+                autoComplete='email'
+                onChange={event => this.setState({ email: event.target.value })}
               />
             </div>
-          : null }
-            <input
-              ref={ ref => this.email = ref}
-              type='text'
-              placeholder='email'
-              autoComplete='email'
-              onChange={event => this.setState({ email: event.target.value })}
-            />
           </div>
-          <div className='grid-item item-s-24 margin-bottom-tiny no-gutter'>
+          <div className='grid-item item-s-24 margin-bottom-tiny'>
             <input
               ref={ ref => this.password = ref}
               type='password'
@@ -120,7 +122,7 @@ export class LoginForm extends Component {
             />
           </div>
           { signup ?
-            <div className='grid-item item-s-24 margin-bottom-tiny no-gutter'>
+            <div className='grid-item item-s-24 margin-bottom-tiny'>
               <input
                 ref={ ref => this.passwordConfirm = ref}
                 type='password'
@@ -129,14 +131,14 @@ export class LoginForm extends Component {
               />
             </div>
           : null }
-          <div className='grid-item item-s-12 margin-bottom-tiny no-gutter'>
+          <div className='grid-item item-s-12 margin-bottom-tiny'>
             <button className='font-size-small color-grey-mid link-underline' onClick={() => this.toggleSignup()}>{signup ? 'Login' : 'Signup'}</button>
           </div>
           <div className='grid-item item-s-12 margin-bottom-tiny text-align-right'>
             <Link id="link-forgot-password" className='font-size-small color-grey-mid link-underline' to={'/forgotpassword'}>Forgot password?</Link>
           </div>
-          <div className='grid-item item-s-8 offset-s-16 text-align-center no-gutter'>
-            <button onClick={() => this.login()} className='font-size-large'>
+          <div className='grid-item item-s-8 offset-s-16 text-align-right'>
+            <button type='submit' onClick={() => this.login()} className='button font-size-large'>
               {signup ? 'Signup' : 'Login' }
             </button>
           </div>

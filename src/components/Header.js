@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom';
 import StrokedText from './styled/StrokedText';
 
 const Header = ({ firebase, auth , profile, showLoginModal }) => (
-  <header className="container">
+  <header>
     <div className="grid-row align-items-center justify-between">
-      <div className="grid-item item-s-6 no-gutter grid-row">
-        <div className="grid-item item-s-24 no-gutter grid-row">
-          <StrokedText italic={true}>Nunchi Hype</StrokedText>
-        </div>
+      <div className="grid-item item-s-6 text-align-center">
+        <StrokedText italic={true}>Nunchi Hype</StrokedText>
       </div>
       <div className="grid-item item-s-12 no-gutter grid-row justify-end">
         { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?

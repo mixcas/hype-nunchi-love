@@ -1,17 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import injectSheet from 'react-jss'
 import {  isLoaded, isEmpty } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 
+// STYLES
+import { colorBlue, colorOrange, colorYellow } from '../styl/constants';
+
+// COMPONENTS
 import StrokedText from './styled/StrokedText';
 
-const Header = ({ firebase, auth , profile, showLoginModal }) => (
-  <header>
-    <div className="grid-row align-items-center justify-between">
-      <div className="grid-item item-s-6 text-align-center">
-        <StrokedText italic={true}>Nunchi Hype</StrokedText>
+const styles = {
+ backgroundBlue: {
+   backgroundColor: colorBlue,
+ },
+ backgroundYellow: {
+   backgroundColor: colorYellow,
+ },
+};
+
+const Header = ({ classes, firebase, auth , profile, showLoginModal }) => (
+  <header className={classes.backgroundYellow}>
+    <div className='grid-row align-items-center justify-between'>
+      <div className={`grid-item item-s-24 item-m-8 text-align-center ${classes.backgroundBlue}`}>
+        <StrokedText italic={true} fill='#fff'>Nunchi Hype</StrokedText>
       </div>
-      <div className="grid-item item-s-12 no-gutter grid-row justify-end">
+      <div className="grid-item item-s-24 item-m-12 padding-top-micro padding-bottom-micro no-gutter grid-row justify-end">
         { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?
           <div className="grid-item text-align-center">
             <Link to={'/admin'}>Admin</Link>
@@ -27,4 +41,4 @@ const Header = ({ firebase, auth , profile, showLoginModal }) => (
   </header>
 );
 
-export default Header;
+export default injectSheet(styles)(Header);

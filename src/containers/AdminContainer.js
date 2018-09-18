@@ -4,19 +4,18 @@ import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
 
 import AdminHeader from '../components/AdminHeader';
+import AdminSection from '../components/AdminSection';
 
 const AdminContainer = (props) => {
   return (
     <section>
       <AdminHeader />
+      <AdminSection />
     </section>
   );
 };
 
 const maptStateToProps = ({ firebase }) => ({
-  authError: getVal(firebase, 'authError'),
-  auth: getVal(firebase, 'auth'),
-  profile: getVal(firebase, 'profile')
 });
 
 export default compose(

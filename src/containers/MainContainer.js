@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
 
 // import Routes from '../components/routes';
-import AdminContainer from '../containers/AdminContainer';
+import Admin from '../components/Admin/Admin';
 import NoMatch from '../components/NoMatch';
 
 const MainContainer = (props) => {
@@ -24,7 +24,7 @@ const MainContainer = (props) => {
     <Switch>
       <Route exact path='/' component={() => 'Top and stuff'} />
       { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?
-        <Route exact path='/admin' component={AdminContainer} />
+        <Route path='/admin' component={Admin} />
       : null }
       <Route component={NoMatch}/>
     </Switch>

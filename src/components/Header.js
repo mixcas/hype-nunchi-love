@@ -5,7 +5,7 @@ import {  isLoaded, isEmpty } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 
 // STYLES
-import { colorBlue, colorOrange, colorYellow } from '../styl/constants';
+import { colorBlue, colorOrange, colorYellow } from 'styl/constants';
 
 // COMPONENTS
 import StrokedText from './styled/StrokedText';

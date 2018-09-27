@@ -9,7 +9,7 @@ import SubscriptionsContent from 'components/Subscriptions/SubscriptionsContent'
 const SubscriptionsContainer = ({ subscriptions }) => (
   <section id="subscriptions">
     <SubscriptionsHeader />
-    <SubscriptionsContent data={subscriptions} />
+    <SubscriptionsContent subscriptions={subscriptions} />
   </section>
 );
 

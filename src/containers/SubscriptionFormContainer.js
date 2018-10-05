@@ -13,24 +13,6 @@ const SubscriptionFormContainer = (props) => (
   <SubscriptionForm {...props} />
 );
 
-const maptStateToProps = ({ id, firebase, subscriptionForm }) => ({
-  subscription: () => id ? getVal(firebase, 'subscriptions') : null,
-  formState: subscriptionForm,
-});
-
-const mapDispatchToProps = dispatch => ({
-  submitForm: data  => dispatch({
-    type: 'SUBMIT_SUBSCRIPTION_FORM',
-    data,
-  }),
-  onUrlChange: data => dispatch(urlChange(data)),
-  onRegexChange: data => dispatch(regexChange(data)),
-});
-
 export default compose(
   firebaseConnect(),
-  connect(
-    maptStateToProps,
-    mapDispatchToProps,
-  ),
 )(SubscriptionFormContainer);

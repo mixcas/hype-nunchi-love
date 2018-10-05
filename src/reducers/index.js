@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { firebaseReducer } from 'react-redux-firebase';
+import { reducer as formReducer } from 'redux-form';
 
 import authReducer from './AuthReducer';
 import SubscriptionFormReducer from './SubscriptionFormReducer';
@@ -9,7 +10,8 @@ import SubscriptionFormReducer from './SubscriptionFormReducer';
 const appReducer = combineReducers({
   firebase: firebaseReducer,
   auth: authReducer,
-  subscriptionForm: SubscriptionFormReducer
+  subscriptionForm: SubscriptionFormReducer,
+  form: formReducer,
 })
 
 // Setup root reducer

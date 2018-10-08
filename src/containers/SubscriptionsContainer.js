@@ -14,11 +14,13 @@ const SubscriptionsContainer = ({ subscriptions }) => (
 );
 
 const maptStateToProps = ({ firebase }) => ({
-  subscriptions: getVal(firebase, 'subscriptions')
+  subscriptions: getVal(firebase, 'ordered/subscriptions'),
 });
 
 export default compose(
-  firebaseConnect(),
+  firebaseConnect([
+    'subscriptions',
+  ]),
   connect(
     maptStateToProps,
   ),

@@ -3,8 +3,8 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
 
-import AdminHeader from '../components/AdminHeader';
-import AdminSection from '../components/AdminSection';
+import AdminHeader from 'components/Admin/AdminHeader';
+import AdminSection from 'components/Admin/AdminSection';
 
 const AdminContainer = (props) => {
   return (
@@ -15,7 +15,8 @@ const AdminContainer = (props) => {
   );
 };
 
-const maptStateToProps = ({ firebase }) => ({
+const maptStateToProps = ({ router }) => ({
+  routePathname: router.location.pathname,
 });
 
 export default compose(

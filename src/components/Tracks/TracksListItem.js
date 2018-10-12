@@ -9,7 +9,7 @@ const enhance = compose(
 )
 
 const TracksListItem = enhance(({ track }) => {
-  const { link, title, draft, hidden, published  } = track;
+  const { link, title, status, published  } = track;
   return (
     <div className="grid-row margin-bottom-small align-items-center">
       <div className="grid-item item-s-8">
@@ -20,9 +20,7 @@ const TracksListItem = enhance(({ track }) => {
       </div>
       <div className="grid-item item-s-4 text-align-center">
         <span>
-          {draft ? 'draft' : ''}
-          {draft && hidden ? ' / ' : ''}
-          {hidden ? 'hidden' : ''}
+          {status}
         </span>
       </div>
     </div>

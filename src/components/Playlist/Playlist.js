@@ -6,6 +6,17 @@ import { isLoaded, isEmpty } from 'react-redux-firebase'
 import { playTrack } from 'actions/PlayerActions'
 import PlaylistItem from 'components/Playlist/PlaylistItem'
 
+const sortBy = (a, b, param) => {
+  const aParam = a.value[param]
+  const bParam = b.value[param]
+
+  if(aParam < bParam) return 1
+  if(aParam > bParam) return -1
+  return 0
+}
+
+const sortByPUblisheDate = (a,b) => sortBy(a,b,'published')
+
 const PlaylistList = ({ tracks, playTrack }) => {
   // Message for if todos are loading
   if(!isLoaded(tracks)) {
@@ -19,7 +30,7 @@ const PlaylistList = ({ tracks, playTrack }) => {
 
   return (
     <div className="container margin-top-basic margin-bottom-basic">
-      {tracks.reverse().map( (item, index) => (
+      {tracks.reverse().sort(sortByPUblisheDate).map( (item, index) => (
         <PlaylistItem track={item.value} key={item.key} onClick={playTrack} />
       ))}
     </div>

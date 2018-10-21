@@ -7,15 +7,13 @@ const PlaylistItem = ({ track, onClick }) => {
   const { title, status, published, link  } = track;
   return (
     <div className="grid-row margin-bottom-small align-items-center">
-      <div className="grid-item item-s-8">
+      <div className="grid-item item-s-12">
         <h2>
           <button className='u-pointer' onClick={() => onClick(link)}>{title}</button>
         </h2>
       </div>
       <div className="grid-item item-s-4 text-align-center">
         { distanceInWords(published, new Date()) }
-      </div>
-      <div className="grid-item item-s-4 text-align-center">
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ const styles = {
 };
 
 const TracksContent = ({ tracks, classes }) => (
-  <section id='admin-section-content' className={`grid-row justify-end padding-top-micro padding-bottom-micro`}>
+  <section id='tracks' className={`grid-row justify-end padding-top-micro padding-bottom-micro`}>
     <Switch>
       <Route exact path='/admin/tracks' render={() => <TracksList tracks={tracks} />} />
       {/* <Route exact path='/admin/tracks/add' component={TrackFormContainer} /> */}

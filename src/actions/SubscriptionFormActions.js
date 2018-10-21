@@ -1,5 +1,5 @@
-import { URL_CHANGE } from '../reducers/SubscriptionFormReducer';
-import { REGEX_CHANGE } from '../reducers/SubscriptionFormReducer';
+import { URL_CHANGE } from 'reducers/SubscriptionFormReducer';
+import { REGEX_CHANGE } from 'reducers/SubscriptionFormReducer';
 
 export const urlChange = (data) => {
   return {

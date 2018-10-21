@@ -22,6 +22,11 @@ const submit = ({ url, regex }) => {
     regex,
     parsed: false,
   })
+    .then( snapshot => {
+      if(snapshot.key.length) {
+        console.log('created');
+      }
+    })
     .catch( err => {
       debugger;
     });

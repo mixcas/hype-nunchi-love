@@ -6,6 +6,7 @@ import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase
 
 // import Routes from '../components/routes';
 import AdminContainer from 'containers/AdminContainer';
+import HomeContainer from 'containers/HomeContainer';
 import NoMatch from 'components/NoMatch';
 
 const MainContainer = (props) => {
@@ -22,7 +23,7 @@ const MainContainer = (props) => {
 
   return (
     <Switch>
-      <Route exact path='/' component={() => 'Top and stuff'} />
+      <Route exact path='/' component={HomeContainer} />
       { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?
         <Route path='/admin' component={AdminContainer} />
       : null }

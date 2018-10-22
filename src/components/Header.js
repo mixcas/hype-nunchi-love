@@ -31,7 +31,9 @@ const Header = ({ classes, firebase, auth , profile, showLoginModal }) => (
   <header className={`${classes.header} ${classes.backgroundYellow}`}>
     <div className='grid-row align-items-center justify-between'>
       <div className={`grid-item item-s-24 item-m-8 text-align-center ${classes.backgroundBlue}`}>
-        <StrokedText italic={true} fill='#fff'>Nunchi Hype</StrokedText>
+        <Link to={'/'}>
+          <StrokedText italic={true} fill='#fff'>Nunchi Hype</StrokedText>
+        </Link>
       </div>
       <div className="grid-item item-s-24 item-m-12 padding-top-micro padding-bottom-micro no-gutter grid-row justify-end">
         { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?

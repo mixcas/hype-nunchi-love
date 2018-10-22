@@ -1,14 +1,8 @@
-import React, { Component } from 'react'
-import { compose, withReducer, withHandlers, flattenProp } from 'recompose'
+import React from 'react'
 import PropTypes from 'prop-types'
 import distanceInWords from 'date-fns/distance_in_words'
 
-const enhance = compose(
-  // flattenProp('track'),
-  // flattenProp('meta'),
-)
-
-const TracksListItem = enhance(({ track }) => {
+const TracksListItem = ({ track }) => {
   const { link, title, status, published  } = track;
   return (
     <div className="grid-row margin-bottom-small align-items-center">
@@ -25,8 +19,7 @@ const TracksListItem = enhance(({ track }) => {
       </div>
     </div>
   )
-
-})
+}
 
 TracksListItem.propTypes = {
   parsed: PropTypes.bool,

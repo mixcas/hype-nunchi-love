@@ -17,7 +17,7 @@ const sortBy = (a, b, param) => {
 
 const sortByPUblisheDate = (a,b) => sortBy(a,b,'published')
 
-const PlaylistList = ({ tracks, playTrack }) => {
+const PlaylistList = ({ player, tracks, playTrack }) => {
   // Message for if todos are loading
   if(!isLoaded(tracks)) {
     return <span>Loading...</span>
@@ -29,13 +29,17 @@ const PlaylistList = ({ tracks, playTrack }) => {
   }
 
   return (
-    <div className="container margin-top-basic margin-bottom-basic">
+    <div className="container margin-top-small margin-bottom-basic">
       {tracks.reverse().sort(sortByPUblisheDate).map( (item, index) => (
-        <PlaylistItem track={item.value} key={item.key} onClick={playTrack} />
+        <PlaylistItem track={item.value} key={item.key} onClick={playTrack} isPlaying={item.value.link === player.url}/>
       ))}
     </div>
   )
 }
+
+const maptStateToProps = ({ player }) => ({
+  player
+});
 
 const mapDipatchToProps = (dispatch) => ({
   playTrack: (url) => {
@@ -45,7 +49,7 @@ const mapDipatchToProps = (dispatch) => ({
 
 export default compose(
   connect(
-    null,
+    maptStateToProps,
     mapDipatchToProps,
   ),
 )(PlaylistList);

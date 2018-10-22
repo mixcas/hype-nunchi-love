@@ -11,16 +11,24 @@ import { colorBlue, colorOrange, colorYellow } from 'styl/constants';
 import StrokedText from './styled/StrokedText';
 
 const styles = {
- backgroundBlue: {
-   backgroundColor: colorBlue,
- },
- backgroundYellow: {
-   backgroundColor: colorYellow,
- },
+  header: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 999,
+  },
+  backgroundBlue: {
+    backgroundColor: colorBlue,
+  },
+  backgroundYellow: {
+    backgroundColor: colorYellow,
+  },
+
 };
 
 const Header = ({ classes, firebase, auth , profile, showLoginModal }) => (
-  <header className={classes.backgroundYellow}>
+  <header className={`${classes.header} ${classes.backgroundYellow}`}>
     <div className='grid-row align-items-center justify-between'>
       <div className={`grid-item item-s-24 item-m-8 text-align-center ${classes.backgroundBlue}`}>
         <StrokedText italic={true} fill='#fff'>Nunchi Hype</StrokedText>

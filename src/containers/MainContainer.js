@@ -22,13 +22,15 @@ const MainContainer = (props) => {
   }
 
   return (
-    <Switch>
-      <Route exact path='/' component={HomeContainer} />
-      { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?
-        <Route path='/admin' component={AdminContainer} />
-      : null }
-      <Route component={NoMatch}/>
-    </Switch>
+    <div className='padding-top-basic'>
+      <Switch>
+        <Route exact path='/' component={HomeContainer} />
+        { !isEmpty(auth) && isLoaded(auth) && profile.roles && profile.roles.admin ?
+          <Route path='/admin' component={AdminContainer} />
+        : null }
+        <Route component={NoMatch}/>
+      </Switch>
+    </div>
   );
 };
 

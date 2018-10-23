@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { compose, withReducer, withHandlers, flattenProp } from 'recompose'
 import PropTypes from 'prop-types'
+
+import SubscriptionStatus from 'components/pubsubhubbub/SubscriptionStatus'
 
 const enhance = compose(
   flattenProp('subscription'),
   flattenProp('meta'),
 )
 
-const SubscriptionsListItem = enhance(({ parsed, url, title, thumbnails, regex }) => {
+const SubscriptionsListItem = enhance(({ channelId, parsed, url, title, thumbnails, regex }) => {
   if(parsed) {
     return (
       <div className="grid-row margin-bottom-small align-items-center">
@@ -18,7 +20,7 @@ const SubscriptionsListItem = enhance(({ parsed, url, title, thumbnails, regex }
           <h2><a href={url} target="_blank" rel="noopener noreferrer">{title}</a></h2>
         </div>
         <div className="grid-item item-s-8">
-          <code>{regex}</code>
+          <SubscriptionStatus channelId={channelId} />
         </div>
         { /* JSON.stringify(subscription, null, 2)} */}
       </div>

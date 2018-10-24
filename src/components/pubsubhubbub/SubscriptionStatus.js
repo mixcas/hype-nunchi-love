@@ -2,8 +2,6 @@ import React from 'react'
 import { compose, lifecycle, withState } from 'recompose'
 import injectSheet from 'react-jss'
 import PropTypes from 'prop-types'
-import cheerio from 'cheerio'
-
 
 import { checkPubSubscription } from 'lib/pubsubhubbub'
 

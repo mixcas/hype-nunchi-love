@@ -1,18 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import injectSheet from 'react-jss'
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { compose, withReducer, withHandlers, flattenProp } from 'recompose';
+import { compose } from 'recompose';
 import { getFirebase } from 'react-redux-firebase';
 
-import { isAllowedSubscription, isYoutubeChannel, validRegex, required } from 'lib/validators';
-
-// STYLES
-import { colorBlue, colorWhite } from 'styl/constants';
-
-const styles = {
-};
-
+import { isAllowedSubscription, validRegex, required } from 'lib/validators';
 
 const submit = ({ url, regex }) => {
   const firebase = getFirebase();
@@ -53,11 +44,10 @@ const enhance = compose(
   reduxForm({
     form: 'subscription',
     initialValues: {
-      regex: 'MV|M\\V|M\/V',
+      regex: 'MV|M\\V|M/V',
       //url: 'https://www.youtube.com/channel/UCDIhSUQ7tY5yfSKJWeNaPUQ?view_as=subscriber',
     }
   }),
-  injectSheet(styles)
 );
 
 const SubscriptionForm = enhance( ({ classes, handleSubmit, change }) => (

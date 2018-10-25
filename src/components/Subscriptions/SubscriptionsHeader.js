@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import injectSheet from 'react-jss'
-import { Route, Switch, withRouter } from 'react-router-dom';
 
 // STYLES
-import { colorGray, colorWhite } from 'styl/constants';
+import { colorGray } from 'styl/constants';
 
 const styles = {
  backgroundGray: {

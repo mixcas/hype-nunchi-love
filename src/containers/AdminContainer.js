@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 
 import AdminHeader from 'components/Admin/AdminHeader';
 import AdminSection from 'components/Admin/AdminSection';

@@ -1,10 +1,6 @@
 import React from 'react';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase';
-
-// ACTIONS
-import { urlChange, regexChange } from 'actions/SubscriptionFormActions';
+import { firebaseConnect } from 'react-redux-firebase';
 
 // COMPONENTS
 import SubscriptionForm from 'components/Subscriptions/SubscriptionForm';

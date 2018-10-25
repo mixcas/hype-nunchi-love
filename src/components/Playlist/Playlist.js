@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import { isLoaded, isEmpty } from 'react-redux-firebase'

@@ -1,11 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import injectSheet from 'react-jss'
 import {  isLoaded, isEmpty } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 
 // STYLES
-import { colorBlue, colorOrange, colorYellow } from 'styl/constants';
+import { colorBlue, colorYellow } from 'styl/constants';
 
 // COMPONENTS
 import StrokedText from './styled/StrokedText';

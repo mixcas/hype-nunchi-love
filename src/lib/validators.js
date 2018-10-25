@@ -36,6 +36,5 @@ export const isSoundcloud = value => {
 }
 
 export const isAllowedSubscription = value => {
-  debugger;
-  isYoutubeChannel(value) || isSoundcloud(value) ? 'Must be a balid subscription url (Youtube or soundcloud)' : undefined;
+  return isYoutubeChannel(value) || isSoundcloud(value) ? 'Must be a balid subscription url (Youtube or soundcloud)' : undefined;
 }

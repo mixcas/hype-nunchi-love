@@ -4,7 +4,7 @@ export const REGEX_CHANGE = 'REGEX_CHANGE';
 // This is our initial state
 const initialState = {
   url: '',
-  regex: "MV|M\\V|M\/V"
+  regex: "MV|M\\V|M/V"
 };
 
 const SubscriptionFormReducer = (state = initialState, action) => {

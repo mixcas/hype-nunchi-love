@@ -45,8 +45,8 @@ const enhance = compose(
   injectSheet(styles)
 )
 
-const SubscriptionStatus = enhance(({ classes, status }) => (
-  <span className={`${classes.status} ${classes[status]}`}>{status === 'loading' ? 'loading...' : status.toUpperCase()}</span>
+const SubscriptionStatus = enhance(({ classes, channelId, status }) => (
+  <a href={`https://pubsubhubbub.appspot.com/subscription-details?hub.callback=http%3A%2F%2Fus-central1-hype-nunchi-love.cloudfunctions.net%2Fapp%2Fservice%2FPubSubHubbub%2F${channelId}&hub.topic=https%3A%2F%2Fwww.youtube.com%2Fxml%2Ffeeds%2Fvideos.xml%3Fchannel_id%3D${channelId}&hub.secret=`} target='_blank' className={`${classes.status} ${classes[status]}`}>{status === 'loading' ? 'loading...' : status.toUpperCase()}</a>
 ))
 
 SubscriptionStatus.propTypes = {

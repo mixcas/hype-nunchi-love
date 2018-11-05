@@ -61,7 +61,7 @@ const SubscriptionForm = enhance( ({ classes, handleSubmit, change }) => (
         type='text'
         placeholder='URL'
         label='URL'
-        validate={[required, isAllowedSubscription]}
+        validate={[required]}
       />
       <Field
         name='regex'

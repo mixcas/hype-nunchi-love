@@ -13,13 +13,16 @@ const styles = {
   }
 }
 
+const playerWidth = 400
+const playerHeight = playerWidth / 1.777777778
+
 const Player = ({ classes, player: { url = '', playing = false } }) => (
   <div className={classes.player}>
     <ReactPlayer
       url={url}
       playing={playing}
-      width={'304px'}
-      height={'171px'}
+      width={`${playerWidth}px`}
+      height={`${playerHeight}px`}
     />
   </div>
 )

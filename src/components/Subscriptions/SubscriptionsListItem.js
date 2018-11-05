@@ -3,6 +3,7 @@ import { compose, flattenProp } from 'recompose'
 import PropTypes from 'prop-types'
 
 import SubscriptionStatus from 'components/pubsubhubbub/SubscriptionStatus'
+import SubscriptionButton from 'components/pubsubhubbub/SubscriptionButton'
 
 const enhance = compose(
   flattenProp('subscription'),
@@ -19,8 +20,11 @@ const SubscriptionsListItem = enhance(({ channelId, parsed, url, title, thumbnai
         <div className="grid-item item-s-8">
           <h2><a href={url} target="_blank" rel="noopener noreferrer">{title}</a></h2>
         </div>
-        <div className="grid-item item-s-8">
+        <div className="grid-item item-s-3">
           <SubscriptionStatus channelId={channelId} />
+        </div>
+        <div className="grid-item item-s-3">
+          <SubscriptionButton channelId={channelId} />
         </div>
         { /* JSON.stringify(subscription, null, 2)} */}
       </div>

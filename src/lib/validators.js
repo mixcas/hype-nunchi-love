@@ -27,8 +27,7 @@ export const alphaNumeric = value =>
 		: undefined
 
 export const isYoutubeChannel = value => {
-  debugger;
-  return /((http|https):\/\/|)(www\.|)youtube\.com\/(channel\/|user\/)[a-zA-Z0-9\-]{1,}/.test(value);
+  isYoutubeChannel(value) ? 'Must be a balid subscription url (Youtube or soundcloud)' : undefined;
 }
 
 export const isSoundcloud = value => {

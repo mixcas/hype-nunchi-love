@@ -19,7 +19,7 @@ const maptStateToProps = ({ firebase: { ordered } }) => ({
 export default compose(
   firebaseConnect([{
     path: 'tracks',
-    queryParams: ['orderByChild=status', `equalTo=published`, `limitToLast=15`],
+    queryParams: ['orderByChild=status', `equalTo=published`],
   }]),
   connect(
     maptStateToProps,

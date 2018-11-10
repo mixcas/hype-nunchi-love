@@ -9,7 +9,6 @@ const styles = {
     position: 'fixed',
     bottom: 0,
     right: 0,
-    maxWidth: '25%',
   }
 }
 

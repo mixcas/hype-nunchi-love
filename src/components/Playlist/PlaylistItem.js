@@ -10,6 +10,9 @@ const styles = {
       outline: 'none',
     }
   },
+  textAlignLeft: {
+    textAlign: 'left',
+  },
 };
 
 const PlaylistItem = ({ track, isPlaying, onClick, classes }) => {
@@ -23,10 +26,10 @@ const PlaylistItem = ({ track, isPlaying, onClick, classes }) => {
       </div>
       <div className="grid-item item-s-16">
         <h2>
-          <button className={`${classes.noFocus} u-pointer`} onClick={() => onClick(link)}>{title}</button>
+          <button className={`${classes.noFocus} ${classes.textAlignLeft} u-pointer`} onClick={() => onClick(link)}>{title}</button>
         </h2>
         <div className='font-size-small'>
-          <time dateTime={published}>{ distanceInWords(published, new Date()) }</time>
+          <time dateTime={published}>{`${distanceInWords(published, new Date())} ago`}</time>
         </div>
       </div>
       <div className="grid-item item-s-4 text-align-center">

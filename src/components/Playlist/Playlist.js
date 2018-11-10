@@ -15,7 +15,7 @@ const sortBy = (a, b, param) => {
   return 0
 }
 
-const sortByPUblisheDate = (a,b) => sortBy(a,b,'published')
+const sortByPublishedDate = (a,b) => sortBy(a,b,'published')
 
 const PlaylistList = ({ player, tracks, playTrack }) => {
   // Message for if todos are loading
@@ -30,7 +30,7 @@ const PlaylistList = ({ player, tracks, playTrack }) => {
 
   return (
     <div className="container margin-top-small margin-bottom-basic">
-      {tracks.reverse().sort(sortByPUblisheDate).map( (item, index) => (
+      {tracks.sort(sortByPublishedDate).map( (item, index) => (
         <PlaylistItem track={item.value} key={item.key} onClick={playTrack} isPlaying={item.value.link === player.url}/>
       ))}
     </div>

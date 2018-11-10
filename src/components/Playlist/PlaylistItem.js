@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
-import distanceInWords from 'date-fns/distance_in_words'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { MdPlayCircleOutline, MdPlayCircleFilled } from 'react-icons/md';
 
 const styles = {
@@ -29,7 +29,7 @@ const PlaylistItem = ({ track, isPlaying, onClick, classes }) => {
           <button className={`${classes.noFocus} ${classes.textAlignLeft} u-pointer`} onClick={() => onClick(link)}>{title}</button>
         </h2>
         <div className='font-size-small'>
-          <time dateTime={published}>{`${distanceInWords(published, new Date())} ago`}</time>
+          <time dateTime={published}>{`${distanceInWordsToNow(published).replace('about ','')} ago`}</time>
         </div>
       </div>
       <div className="grid-item item-s-4 text-align-center">

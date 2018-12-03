@@ -12,7 +12,7 @@ const styles = {
   }
 }
 
-const playerWidth = 400
+const playerWidth = window.innerWidth <= 500 ? window.innerWidth : 400
 const playerHeight = playerWidth / 1.777777778
 
 const Player = ({ classes, player: { url = '', playing = false } }) => (
@@ -22,6 +22,13 @@ const Player = ({ classes, player: { url = '', playing = false } }) => (
       playing={playing}
       width={`${playerWidth}px`}
       height={`${playerHeight}px`}
+      config={{
+        youtube: {
+          playerVars: {
+            showinfo: 0
+          }
+        },
+      }}
     />
   </div>
 )

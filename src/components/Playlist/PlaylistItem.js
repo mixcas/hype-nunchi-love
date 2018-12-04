@@ -13,26 +13,52 @@ const styles = {
   textAlignLeft: {
     textAlign: 'left',
   },
+  rankPosition: {
+    background: '#ffff59',
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
+    height: '100%',
+    alignItems: 'center',
+  },
+  evenRow: {
+    background: '#79bbff1a',
+  },
+  oddRow: {
+    background: '#79bbff40',
+  }
 };
 
-const PlaylistItem = ({ track, isPlaying, onClick, classes }) => {
+const isEven = n => {
+  n = Number(n);
+  return n === 0 || !!(n && !(n%2));
+}
+
+const PlaylistItem = ({ track, isPlaying, onClick, classes, position }) => {
   const { title, published, link  } = track;
   return (
-    <div className="grid-row align-items-center padding-top-tiny padding-bottom-tiny">
-      <div className="grid-item item-s-1 u-flex-center">
-        <button className={`${classes.noFocus} u-pointer`} onClick={() => onClick(link)}>
-          { isPlaying ? <MdPlayCircleFilled/> : <MdPlayCircleOutline/> }
-        </button>
-      </div>
-      <div className="grid-item item-s-16">
-        <h2>
-          <button className={`${classes.noFocus} ${classes.textAlignLeft} u-pointer`} onClick={() => onClick(link)}>{title}</button>
-        </h2>
-        <div className='font-size-small'>
-          <time dateTime={published}>{`${distanceInWordsToNow(published).replace('about ','')} ago`}</time>
+    <div className={`${isEven(position) ? classes.evenRow : classes.oddRow}`}>
+      <div className={`container grid-row align-items-center padding-top-micro padding-bottom-micro`}>
+        <div className={`grid-item item-s-1 u-flex-center align-self-stretch`}>
+          <div className={`align-self-stretch ${classes.rankPosition}`}>
+            {position}
+          </div>
         </div>
-      </div>
-      <div className="grid-item item-s-4 text-align-center">
+        <div className="grid-item item-s-1 u-flex-center">
+          <button className={`${classes.noFocus} u-pointer`} onClick={() => onClick(link)}>
+            { isPlaying ? <MdPlayCircleFilled/> : <MdPlayCircleOutline/> }
+          </button>
+        </div>
+        <div className="grid-item item-s-16">
+          <h2 className='font-bold'>
+            <button className={`${classes.noFocus} ${classes.textAlignLeft} u-pointer`} onClick={() => onClick(link)}>{title}</button>
+          </h2>
+          <div className='font-size-small font-italic'>
+            <time dateTime={published}>{`${distanceInWordsToNow(published).replace('about ','')} ago`}</time>
+          </div>
+        </div>
+        <div className="grid-item item-s-4 text-align-center">
+        </div>
       </div>
     </div>
   )

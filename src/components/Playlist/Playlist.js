@@ -18,20 +18,15 @@ const sortBy = (a, b, param) => {
 const sortByPublishedDate = (a,b) => sortBy(a,b,'published')
 
 const PlaylistList = ({ player, tracks, playTrack }) => {
-  // Message for if todos are loading
-  if(!isLoaded(tracks)) {
-    return <span>Loading...</span>
-  }
-
   // Message if todos are empty
   if(isEmpty(tracks)) {
     return <span>No Tracks Found</span>
   }
 
   return (
-    <div className="container margin-top-small margin-bottom-basic">
+    <div className="margin-bottom-basic">
       {tracks.sort(sortByPublishedDate).map( (item, index) => (
-        <PlaylistItem track={item.value} key={item.key} onClick={playTrack} isPlaying={item.value.link === player.url}/>
+        <PlaylistItem track={item.value} key={item.key} onClick={playTrack} isPlaying={item.value.link === player.url} position={index + 1}/>
       ))}
     </div>
   )

@@ -27,7 +27,7 @@ const maxRange = 10000
 const PlayerProgress = ({ classes, progress, duration }) => {
   const played = progress.played * maxRange || 0
   return (
-    <input className={classes.playerProgress} type='range' min='1' max={maxRange} value={played} />
+    <input className={classes.playerProgress} type='range' step='1' min='1' max={maxRange} value={played} />
   )
 }
 

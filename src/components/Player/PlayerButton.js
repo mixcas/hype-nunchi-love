@@ -4,9 +4,18 @@ import injectSheet from 'react-jss'
 const styles = {
   playerButton: {
     fill: '#fff',
+    '&:focus': {
+      outline: 'none',
+    },
+    '&:hover': {
+      fill: '#ffff59',
+    }
   },
   playerButtonSvg: {
     fill: '#fff',
+    '&:hover': {
+      fill: '#ffff59',
+    }
   }
 }
 

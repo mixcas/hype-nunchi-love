@@ -1,6 +1,6 @@
 import * as findIndex from 'lodash/findIndex'
 
-import { PLAY_TRACK, UPDATE_PROGRESS, SET_DURATION, TOGGLE_PLAY  }  from 'reducers/PlayerReducer'
+import { PLAY_TRACK, UPDATE_PROGRESS, SET_DURATION, TOGGLE_PLAY }  from 'reducers/PlayerReducer'
 
 export const playTrack = (data) => {
   return {

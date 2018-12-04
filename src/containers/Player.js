@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import injectSheet from 'react-jss'
 import { compose } from 'recompose'
 import { connect } from 'react-redux'
@@ -42,6 +42,7 @@ const playerHeight = playerWidth / 1.777777778
 
 const Player = ({ classes, player, handleProgress, handleDuration, togglePlay, handleOnEnded, playAnotherTrack }) => {
   const { url = '', playing = false } = player
+
   return (
     <div className={classes.player}>
       <PlayerControls
@@ -56,12 +57,11 @@ const Player = ({ classes, player, handleProgress, handleDuration, togglePlay, h
         playing={playing}
         width={`${playerWidth}px`}
         height={`${playerHeight}px`}
-        muted={true}
+        muted={false}
         config={{
           youtube: {
             playerVars: {
-              showinfo: 1,
-              controls: 1,
+              showinfo: 0,
             }
           },
         }}
@@ -75,7 +75,7 @@ const Player = ({ classes, player, handleProgress, handleDuration, togglePlay, h
 
 const maptStateToProps = ({ player }) => ({
   player,
-});
+})
 
 const mapDipatchToProps = (dispatch) => ({
   handleDuration: (duration) => {
@@ -102,4 +102,4 @@ export default compose(
     mapDipatchToProps,
   ),
   injectSheet(styles)
-)(Player);
+)(Player)

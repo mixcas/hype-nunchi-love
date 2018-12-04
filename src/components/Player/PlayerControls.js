@@ -4,7 +4,7 @@ import { MdPlayArrow, MdPause, MdSkipNext, MdSkipPrevious } from 'react-icons/md
 import PlayerProgress from 'components/Player/PlayerProgress'
 import PlayerButton from 'components/Player/PlayerButton'
 
-const PlayerControls = ({className, player, togglePlay, playAnotherTrack}) => {
+const PlayerControls = ({className, player, togglePlay, playAnotherTrack }) => {
   const { playing, progress, duration } = player
 
   return (

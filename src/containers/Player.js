@@ -12,6 +12,8 @@ import {
   playAnotherTrack,
 } from 'actions/PlayerActions'
 
+const controlsHeight = 40
+
 const styles = {
   player: {
     position: 'fixed',
@@ -20,6 +22,18 @@ const styles = {
     left: 0,
   },
   reactPlayer: {
+    position: 'absolute',
+    bottom: controlsHeight,
+    right: 0,
+  },
+  playerControls: {
+    height: controlsHeight,
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0,
+    display: 'flex',
+    background: '#000',
   }
 }
 
@@ -31,6 +45,7 @@ const Player = ({ classes, player, handleProgress, handleDuration, togglePlay, h
   return (
     <div className={classes.player}>
       <PlayerControls
+        className={`align-items-center ${classes.playerControls}`}
         player={player}
         togglePlay={togglePlay}
         playAnotherTrack={playAnotherTrack}

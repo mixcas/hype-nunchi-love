@@ -11,12 +11,12 @@ const PlayerControls = ({className, player, togglePlay, playAnotherTrack }) => {
     <div className={`${className}`}>
       <div className='container'>
         <div className='grid-row flex'>
-          <div className={`grid-item item-s-1 u-flex-center`}>
+          <div className={`grid-item item-s-8 item-l-1 u-flex-center`}>
             <PlayerButton onClick={() => playAnotherTrack(-1)}>
               <MdSkipPrevious/>
             </PlayerButton>
           </div>
-          <div className={`grid-item item-s-1 u-flex-center`}>
+          <div className={`grid-item item-s-8 item-l-1 u-flex-center`}>
             { playing ?
             <PlayerButton onClick={togglePlay}>
               <MdPause/>
@@ -26,12 +26,12 @@ const PlayerControls = ({className, player, togglePlay, playAnotherTrack }) => {
             </PlayerButton>
             }
           </div>
-          <div className={`grid-item item-s-1 u-flex-center`}>
+          <div className={`grid-item item-s-8 item-l-1 u-flex-center`}>
             <PlayerButton onClick={() => playAnotherTrack(1)}>
               <MdSkipNext/>
             </PlayerButton>
           </div>
-          <div className={`grid-item item-s-18 u-flex-center`}>
+          <div className={`grid-item item-l-18 u-flex-center desktop-only`}>
             <PlayerProgress progress={progress} duration={duration} />
           </div>
         </div>

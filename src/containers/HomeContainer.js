@@ -28,7 +28,7 @@ const maptStateToProps = ({ firebase }) => {
 export default compose(
   firebaseConnect([{
     path: 'chart/latest/tracks',
-    queryParams: ['limitToLast=15', 'orderByChild=published'],
+    queryParams: ['limitToLast=30', 'orderByChild=published'],
   }]),
   connect(
     maptStateToProps,

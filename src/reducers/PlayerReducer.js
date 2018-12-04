@@ -1,7 +1,7 @@
-export const PLAY_TRACK = 'PLAY_TRACK';
-export const UPDATE_PROGRESS = 'UPDATE_PROGRESS';
-export const SET_DURATION = 'SET_DURATION';
-export const TOGGLE_PLAY = 'TOGGLE_PLAY';
+export const PLAY_TRACK = 'PLAY_TRACK'
+export const UPDATE_PROGRESS = 'UPDATE_PROGRESS'
+export const SET_DURATION = 'SET_DURATION'
+export const TOGGLE_PLAY = 'TOGGLE_PLAY'
 
 // This is our initial state
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
   playing: false,
   progress: {},
   duration: {},
-};
+}
 
 const PlayerReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,12 +18,12 @@ const PlayerReducer = (state = initialState, action) => {
         ...state,
         url: action.url,
         playing: true,
-      };
+      }
     case TOGGLE_PLAY:
       return {
         ...state,
         playing: !state.playing,
-      };
+      }
     case UPDATE_PROGRESS:
       return {
         ...state,
@@ -35,8 +35,8 @@ const PlayerReducer = (state = initialState, action) => {
         duration: action.duration,
       }
     default:
-      return state;
-  };
+      return state
+  }
 }
 
-export default PlayerReducer;
+export default PlayerReducer

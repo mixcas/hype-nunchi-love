@@ -8,6 +8,8 @@ import {
   handleProgress,
   handleDuration,
   togglePlay,
+  handleOnEnded,
+  playAnotherTrack,
 } from 'actions/PlayerActions'
 
 const styles = {
@@ -24,13 +26,14 @@ const styles = {
 const playerWidth = window.innerWidth <= 500 ? window.innerWidth : 400
 const playerHeight = playerWidth / 1.777777778
 
-const Player = ({ classes, player, handleProgress, handleDuration, togglePlay }) => {
+const Player = ({ classes, player, handleProgress, handleDuration, togglePlay, handleOnEnded, playAnotherTrack }) => {
   const { url = '', playing = false } = player
   return (
     <div className={classes.player}>
       <PlayerControls
         player={player}
         togglePlay={togglePlay}
+        playAnotherTrack={playAnotherTrack}
       />
       <ReactPlayer
         className={classes.reactPlayer}
@@ -42,12 +45,14 @@ const Player = ({ classes, player, handleProgress, handleDuration, togglePlay })
         config={{
           youtube: {
             playerVars: {
-              showinfo: 0
+              showinfo: 1,
+              controls: 1,
             }
           },
         }}
-        // onProgress={handleProgress}
-        // onDuration={handleDuration}
+        onProgress={handleProgress}
+        onDuration={handleDuration}
+        onEnded={handleOnEnded}
       />
     </div>
   )
@@ -66,6 +71,12 @@ const mapDipatchToProps = (dispatch) => ({
   },
   togglePlay: () => {
     dispatch(togglePlay())
+  },
+  handleOnEnded: () => {
+    dispatch(handleOnEnded())
+  },
+  playAnotherTrack: (offset) => {
+    dispatch(playAnotherTrack(offset))
   },
 })
 

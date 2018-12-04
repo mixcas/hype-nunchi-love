@@ -12,6 +12,7 @@
     "globie-styl-library": "^1.0.6",
     "history": "^4.7.2",
     "kouto-swiss": "^1.1.0",
+    "lodash": "^4.17.11",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { MdPlayCircleOutline, MdPlayCircleFilled } from 'react-icons/md';
+import { colorBlue } from 'styl/constants';
 
 const styles = {
   noFocus: {
@@ -26,7 +27,10 @@ const styles = {
   },
   oddRow: {
     background: '#79bbff40',
-  }
+  },
+  isPlaying: {
+    background: colorBlue,
+  },
 };
 
 const isEven = n => {
@@ -37,7 +41,7 @@ const isEven = n => {
 const PlaylistItem = ({ track, isPlaying, onClick, classes, position }) => {
   const { title, published, link  } = track;
   return (
-    <div className={`${isEven(position) ? classes.evenRow : classes.oddRow}`}>
+    <div className={`${isEven(position) ? classes.evenRow : classes.oddRow} ${ isPlaying ? classes.isPlaying : ''}`}>
       <div className={`container grid-row align-items-center padding-top-micro padding-bottom-micro`}>
         <div className={`grid-item item-s-1 u-flex-center align-self-stretch`}>
           <div className={`align-self-stretch ${classes.rankPosition}`}>

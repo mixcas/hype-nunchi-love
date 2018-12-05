@@ -12,8 +12,8 @@ const styles = {
 };
 
 const AdminHeader = ({ classes }) => (
-  <nav>
-    <div className={`grid-row justify-end padding-top-micro padding-bottom-micro ${classes.backgroundOrange}`}>
+  <nav className={classes.backgroundOrange}>
+    <div className={`container grid-row justify-end padding-top-micro padding-bottom-micro`}>
       <Link className='grid-item' to={'/admin/subscriptions'}>Subscriptions</Link>
       <Link className='grid-item' to={'/admin/tracks'}>Tracks</Link>
       <Link className='grid-item' to={'/admin/users'}>Users</Link>

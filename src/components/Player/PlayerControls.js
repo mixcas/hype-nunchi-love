@@ -10,7 +10,7 @@ const PlayerControls = ({className, player, togglePlay, playAnotherTrack }) => {
   return (
     <div className={`${className}`}>
       <div className='container'>
-        <div className='grid-row flex'>
+        <div className='grid-row'>
           <div className={`grid-item item-s-8 item-l-1 u-flex-center`}>
             <PlayerButton onClick={() => playAnotherTrack(-1)}>
               <MdSkipPrevious/>

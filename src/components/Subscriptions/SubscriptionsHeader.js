@@ -12,9 +12,11 @@ const styles = {
 };
 
 const SubscriptionsSectionHeader = ({ classes }) => (
-  <div className={`grid-row padding-top-micro padding-bottom-micro ${classes.backgroundGray}`}>
-    <Link className='grid-item' to={'subscriptions/add'}>New</Link>
-  </div>
+  <nav className={classes.backgroundGray}>
+    <div className={`container grid-row padding-top-micro padding-bottom-micro`}>
+      <Link className='grid-item' to={'subscriptions/add'}>New</Link>
+    </div>
+  </nav>
 );
 
 export default injectSheet(styles)(SubscriptionsSectionHeader);

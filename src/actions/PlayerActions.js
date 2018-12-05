@@ -23,9 +23,25 @@ export const handleDuration = (data) => {
   }
 }
 
-export const togglePlay = () => ({
-  type: TOGGLE_PLAY,
-})
+export const togglePlay = () => (dispatch, getState) => {
+  const state = getState()
+  const currentTrackUrl = state.player.url
+
+  if(currentTrackUrl) {
+    dispatch({
+      type: TOGGLE_PLAY,
+    })
+  } else {
+
+    const tracks = state.firebase.ordered.chart.latest.tracks
+    const nextTrack = tracks[0]
+
+    dispatch({
+      type: PLAY_TRACK,
+      url: nextTrack.value.link,
+    })
+  }
+}
 
 export const handleOnEnded = () => (dispatch, getState) => {
   dispatch(playAnotherTrack(1))

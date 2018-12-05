@@ -3,6 +3,8 @@ import injectSheet from 'react-jss'
 
 const styles = {
   playerButton: {
+    display: 'flex',
+    alignContent: 'center',
     fill: '#fff',
     '&:focus': {
       outline: 'none',
@@ -26,7 +28,7 @@ const PlayerButton = ({classes, onClick, children}) => {
     });
   });
   return (
-    <button className={classes.playerButton} onClick={onClick}>
+    <button className={`${classes.playerButton} u-pointer`} onClick={onClick}>
       {childrenWithExtraProp}
     </button>
   )

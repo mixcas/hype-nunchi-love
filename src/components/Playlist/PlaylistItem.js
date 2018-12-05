@@ -11,6 +11,9 @@ const styles = {
       outline: 'none',
     }
   },
+  playlistItem: {
+    transition: 'background 150ms',
+  },
   textAlignLeft: {
     textAlign: 'left',
   },
@@ -41,7 +44,7 @@ const isEven = n => {
 const PlaylistItem = ({ track, isPlaying, onClick, classes, position }) => {
   const { title, published, link  } = track;
   return (
-    <div className={`${isEven(position) ? classes.evenRow : classes.oddRow} ${ isPlaying ? classes.isPlaying : ''}`}>
+    <div className={`${classes.playlistItem} ${isEven(position) ? classes.evenRow : classes.oddRow} ${ isPlaying ? classes.isPlaying : ''}`}>
       <div className={`container grid-row align-items-center padding-top-micro padding-bottom-micro`}>
         <div className={`grid-item item-s-1 u-flex-center align-self-stretch`}>
           <div className={`align-self-stretch ${classes.rankPosition}`}>

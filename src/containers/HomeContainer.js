@@ -7,28 +7,29 @@ import Loading from 'components/Loading'
 // import SubscriptionsHeader from 'components/Subscriptions/SubscriptionsHeader';
 import Playlist from 'components/Playlist/Playlist.js';
 
-const HomeContainer = ({ chart }) => {
+const HomeContainer = ({ playlist }) => {
   // Message for if todos are loading
-  if(!isLoaded(chart)) {
+  if(!isLoaded(playlist)) {
     return <Loading/>
   }
 
   return (
     <section id="tracks">
-      <Playlist tracks={chart.latest.tracks} />
+      <Playlist tracks={playlist} />
     </section>
   )
 }
 
 const maptStateToProps = ({ firebase }) => {
   return ({
-    chart: firebase.ordered.chart
+    playlist: firebase.ordered.currentPlaylist
   });
 }
 
 export default compose(
   firebaseConnect([{
     path: 'chart/latest/tracks',
+    storeAs: 'currentPlaylist',
     queryParams: ['limitToLast=30', 'orderByChild=published'],
   }]),
   connect(

@@ -9,11 +9,6 @@ import LoginContainer from 'containers/LoginContainer';
 
 const App = () => (
   <main>
-    <Helmet>
-      <meta charSet="utf-8" />
-      <title>Nunchi Hype</title>
-    </Helmet>
-
     <Header />
 
     <MainContainer />

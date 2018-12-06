@@ -49,7 +49,7 @@ export const handleOnEnded = () => (dispatch, getState) => {
 
 export const playAnotherTrack = (offset) => (dispatch, getState) => {
   const state = getState()
-  const tracks = state.firebase.ordered.chart.currentPlaylist
+  const tracks = state.firebase.ordered.currentPlaylist
   const currentTrackUrl = state.player.url
 
   const currentTrackIndex = findIndex(tracks, { value: { link: currentTrackUrl } })

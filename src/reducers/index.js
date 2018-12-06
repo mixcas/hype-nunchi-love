@@ -5,6 +5,7 @@ import { reducer as formReducer } from 'redux-form';
 import authReducer from './AuthReducer';
 import SubscriptionFormReducer from './SubscriptionFormReducer';
 import PlayerReducer from './PlayerReducer';
+import PlaylistReducer from './PlaylistReducer';
 
 // Reducers
 
@@ -13,7 +14,8 @@ const appReducer = combineReducers({
   auth: authReducer,
   subscriptionForm: SubscriptionFormReducer,
   form: formReducer,
-  player: PlayerReducer
+  player: PlayerReducer,
+  playlist: PlaylistReducer,
 })
 
 // Setup root reducer

@@ -1,5 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import { colorBlue, colorYellow } from 'styl/constants';
 
 const styles = {
   playerButton: {
@@ -10,13 +11,13 @@ const styles = {
       outline: 'none',
     },
     '&:hover': {
-      fill: '#ffff59',
+      fill: colorYellow,
     }
   },
   playerButtonSvg: {
     fill: '#fff',
     '&:hover': {
-      fill: '#ffff59',
+      fill: colorYellow,
     }
   }
 }

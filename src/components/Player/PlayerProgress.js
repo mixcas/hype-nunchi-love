@@ -1,5 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import { colorBlue, colorYellow } from 'styl/constants';
 
 const styles = {
   playerProgress: {
@@ -8,14 +9,14 @@ const styles = {
     padding: 0,
     border: 'none',
     borderRadius: 0,
-    background: '#ffff59',
+    background: colorYellow,
     height: 12,
     '&::-webkit-slider-thumb': {
       '-webkit-appearance': 'none',
       width: 12,
       height: 12,
+      background: colorBlue,
       appearance: 'none',
-      background: '#78beff',
       border: 'none',
       borderRadius: 0,
     }

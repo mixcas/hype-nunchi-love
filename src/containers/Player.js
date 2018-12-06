@@ -62,6 +62,7 @@ const Player = ({ classes, player, handleProgress, handleDuration, togglePlay, h
           youtube: {
             playerVars: {
               showinfo: 0,
+              // controls: 1,
             }
           },
         }}

@@ -36,7 +36,9 @@ const Header = ({ classes, firebase, auth , profile, showLoginModal }) => (
     <div className='container grid-row align-items-center justify-between'>
       <div className={`grid-item item-s-24 item-m-8 ${classes.backgroundBlue}`}>
         <Link to={'/'}>
-          <StrokedText italic={true} stroke={colorYellow} fill='#000' hover={colorBlue} >Nunchi Hype</StrokedText>
+          <h1>
+            <StrokedText italic={true} stroke={colorYellow} fill='#000' hover={colorBlue} >Nunchi Hype</StrokedText>
+          </h1>
         </Link>
       </div>
       <div className="grid-item item-s-24 item-m-12 padding-top-micro padding-bottom-micro no-gutter grid-row justify-end">

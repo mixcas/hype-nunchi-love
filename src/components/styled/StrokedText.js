@@ -4,7 +4,7 @@ import { colorYellow } from 'styl/constants';
 
 const hoverTransition = 300
 
-const StrokedText = styled.h1`
+const StrokedText = styled.span`
   font-family: 'Rubik', sans-serif;
   font-style: ${ props => props.italic ? 'italic' : 'normal' };
   -moz-text-fill-color: ${ props => props.fill ? props.fill : '#00000000'};

@@ -69,6 +69,7 @@ const Player = ({ classes, player, handleProgress, handleDuration, togglePlay, h
         onProgress={handleProgress}
         onDuration={handleDuration}
         onEnded={handleOnEnded}
+        progressInterval={1000/60}
       />
     </div>
   )

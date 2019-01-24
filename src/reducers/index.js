@@ -6,6 +6,7 @@ import authReducer from './AuthReducer';
 import SubscriptionFormReducer from './SubscriptionFormReducer';
 import PlayerReducer from './PlayerReducer';
 import PlaylistReducer from './PlaylistReducer';
+import AdminTracksReducer from './AdminTracksReducer';
 
 // Reducers
 
@@ -16,6 +17,7 @@ const appReducer = combineReducers({
   form: formReducer,
   player: PlayerReducer,
   playlist: PlaylistReducer,
+  adminTracks: AdminTracksReducer,
 })
 
 // Setup root reducer

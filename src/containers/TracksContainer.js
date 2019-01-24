@@ -13,14 +13,21 @@ const TracksContainer = ({ tracks }) => (
   </section>
 );
 
+const maptStateToPropsBefore = ({ adminTracks }) => {
+  return ({
+    page: adminTracks.page,
+  });
+}
+
 const maptStateToProps = ({ firebase: { ordered: { tracks }}}) => ({
   tracks,
 });
 
 export default compose(
-  firebaseConnect([{
+  connect(maptStateToPropsBefore),
+  firebaseConnect( ({ page }) => [{
     path: 'tracks',
-    queryParams: ['orderByChild=published'],
+    queryParams: [`limitToLast=${page * 30}`, 'orderByChild=published'],
   }]),
   connect(
     maptStateToProps,

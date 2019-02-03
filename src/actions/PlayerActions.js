@@ -33,12 +33,12 @@ export const togglePlay = () => (dispatch, getState) => {
     })
   } else {
 
-    const tracks = state.firebase.ordered.currentPlaylist
+    const tracks = state.firestore.ordered.currentPlaylist
     const nextTrack = tracks[0]
 
     dispatch({
       type: PLAY_TRACK,
-      url: nextTrack.value.link,
+      url: nextTrack.link,
     })
   }
 }
@@ -49,14 +49,14 @@ export const handleOnEnded = () => (dispatch, getState) => {
 
 export const playAnotherTrack = (offset) => (dispatch, getState) => {
   const state = getState()
-  const tracks = state.firebase.ordered.currentPlaylist
+  const tracks = state.firestore.ordered.currentPlaylist
   const currentTrackUrl = state.player.url
 
-  const currentTrackIndex = findIndex(tracks, { value: { link: currentTrackUrl } })
+  const currentTrackIndex = findIndex(tracks, { link: currentTrackUrl })
   const nextTrack = tracks[currentTrackIndex + offset]
 
   dispatch({
     type: PLAY_TRACK,
-    url: nextTrack.value.link,
+    url: nextTrack.link,
   })
 }

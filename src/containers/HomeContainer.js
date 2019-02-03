@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { isLoaded, firebaseConnect } from 'react-redux-firebase';
+import { isLoaded, firebaseConnect, firestoreConnect } from 'react-redux-firebase';
 import Loading from 'components/Loading'
 
 // import SubscriptionsHeader from 'components/Subscriptions/SubscriptionsHeader';
@@ -26,19 +26,22 @@ const maptStateToPropsBefore = ({ playlist }) => {
   });
 }
 
-const maptStateToProps = ({ firebase }) => {
+const maptStateToProps = ({ firebase, firestore }) => {
   return ({
-    tracks: firebase.ordered.currentPlaylist,
+    tracks: firestore.ordered.currentPlaylist,
   });
 }
 
 export default compose(
   connect(maptStateToPropsBefore),
-  firebaseConnect( ({ page }) => [{
-      path: 'chart/latest/tracks',
-      storeAs: 'currentPlaylist',
-      queryParams: [`limitToLast=${page * 30}`, 'orderByChild=published'],
-    }]
-  ),
+  firestoreConnect( ({ page }) => [{
+    collection: 'tracks',
+    orderBy: ['published', 'desc'],
+    where: [
+      ['status', '==', 'published'],
+    ],
+    limit: page * 30,
+    storeAs: 'currentPlaylist',
+  }]),
   connect(maptStateToProps),
 )(HomeContainer);

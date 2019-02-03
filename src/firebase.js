@@ -1,6 +1,8 @@
 import { createStore, compose } from 'redux';
 import firebase from 'firebase';
+import 'firebase/firestore'
 import { reactReduxFirebase } from 'react-redux-firebase';
+import { reduxFirestore } from 'redux-firestore'
 
 // Firebae configuration
 const firebaseConfig = {
@@ -15,14 +17,25 @@ const firebaseConfig = {
 // Init firebase instance
 firebase.initializeApp(firebaseConfig);
 
+// Initialize Firestore with timeshot settings
+firebase.firestore().settings({})
+
 // react-redux-firebase config
 const reduxFirebaseConfig = {
   userProfile: 'users',
   //enableLogging: true, // enable/disable Firebase's database logging
 };
 
+// react-firestore config
+const reduxFirestoreConfig = {
+  logErrors: true,
+  enableLogging: true,
+  logListenerError: true,
+};
+
 // Add redux Firebase to compose
 // Add BOTH store enhancers when making store creator
 export const createStoreWithFirebase = compose(
-  reactReduxFirebase(firebase, reduxFirebaseConfig)
+  reduxFirestore(firebase, reduxFirestoreConfig),
+  reactReduxFirebase(firebase, reduxFirebaseConfig),
 )(createStore)

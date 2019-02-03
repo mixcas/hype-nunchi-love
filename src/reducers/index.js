@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { firebaseReducer } from 'react-redux-firebase';
 import { reducer as formReducer } from 'redux-form';
+import { firestoreReducer } from 'redux-firestore'
 
 import authReducer from './AuthReducer';
 import SubscriptionFormReducer from './SubscriptionFormReducer';
@@ -9,9 +10,9 @@ import PlaylistReducer from './PlaylistReducer';
 import AdminTracksReducer from './AdminTracksReducer';
 
 // Reducers
-
 const appReducer = combineReducers({
   firebase: firebaseReducer,
+  firestore: firestoreReducer,
   auth: authReducer,
   subscriptionForm: SubscriptionFormReducer,
   form: formReducer,

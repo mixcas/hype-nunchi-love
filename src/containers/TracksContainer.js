@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 
 // import SubscriptionsHeader from 'components/Subscriptions/SubscriptionsHeader';
 import TracksContent from 'components/Tracks/TracksContent';
@@ -19,15 +19,16 @@ const maptStateToPropsBefore = ({ adminTracks }) => {
   });
 }
 
-const maptStateToProps = ({ firebase: { ordered: { tracks }}}) => ({
+const maptStateToProps = ({ firestore: { ordered: { tracks }}}) => ({
   tracks,
 });
 
 export default compose(
   connect(maptStateToPropsBefore),
-  firebaseConnect( ({ page }) => [{
-    path: 'tracks',
-    queryParams: [`limitToLast=${page * 30}`, 'orderByChild=published'],
+  firestoreConnect( ({ page }) => [{
+    collection: 'tracks',
+    orderBy: ['published', 'desc'],
+    limit: page * 60,
   }]),
   connect(
     maptStateToProps,

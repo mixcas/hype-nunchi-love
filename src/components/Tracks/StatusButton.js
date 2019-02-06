@@ -1,6 +1,6 @@
 import React from 'react'
+import { getFirebase, withFirestore } from 'react-redux-firebase';
 import { compose, withHandlers } from 'recompose'
-import { getFirebase } from 'react-redux-firebase';
 import injectSheet from 'react-jss'
 import PropTypes from 'prop-types'
 
@@ -15,24 +15,22 @@ const styles = {
   },
 }
 
-const toggleTrackStatus = (trackId, oldStatus) => {
-  const firebase = getFirebase()
+const toggleTrackStatus = (trackId, oldStatus, firestore) => {
 
   const status = oldStatus === 'published' ? 'unpublished' : 'published'
 
   const checked = window.confirm(`Are you sure you want to ${status.replace('ed','')} this track?`)
   if(checked) {
-    firebase.update(`/tracks/${trackId}`, {
+    firestore.update(`/tracks/${trackId}`, {
       status,
     })
   }
-
 }
 
 const enhance = compose(
   withHandlers({
     onClick: props => event => {
-      toggleTrackStatus(props.trackId, props.status)
+      toggleTrackStatus(props.trackId, props.status, props.firestore)
     },
   }),
   injectSheet(styles)
@@ -47,4 +45,4 @@ StatusButton.propTypes = {
   status: PropTypes.string,
 }
 
-export default StatusButton;
+export default withFirestore(StatusButton);

@@ -16,8 +16,8 @@ const TracksList = ({ tracks }) => {
 
   return (
     <div className="container margin-top-basic margin-bottom-basic">
-      {tracks.reverse().map( (item, index) => (
-        <TracksListItem track={item.value} key={item.key} />
+      {tracks.map( (item, index) => (
+        <TracksListItem track={item} key={item.id} />
       ))}
     </div>
   )

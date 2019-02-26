@@ -51,18 +51,15 @@ const PlaylistItem = ({ track, isPlaying, onClick, classes, position }) => {
             {position}
           </div>
         </div>
-        <div className="grid-item item-s-1 u-flex-center">
-          <button className={`${classes.noFocus} u-pointer`} onClick={() => onClick(link)}>
-            { isPlaying ? <MdPlayCircleFilled/> : <MdPlayCircleOutline/> }
-          </button>
-        </div>
         <div className="grid-item item-s-16">
-          <h2 className='font-bold'>
-            <button className={`${classes.noFocus} ${classes.textAlignLeft} u-pointer`} onClick={() => onClick(link)}>{title}</button>
-          </h2>
-          <div className='font-size-small font-italic'>
-            <time dateTime={published}>{`${distanceInWordsToNow(published).replace('about ','')} ago`}</time>
-          </div>
+          <button className={`${classes.noFocus} ${classes.textAlignLeft} u-pointer`} onClick={() => onClick(link)}>
+            <h2>
+              {title}
+            </h2>
+            <div className='font-size-small font-italic'>
+              <time dateTime={published}>{`${distanceInWordsToNow(published).replace('about ','')} ago`}</time>
+            </div>
+          </button>
         </div>
         <div className="grid-item item-s-4 text-align-center">
         </div>

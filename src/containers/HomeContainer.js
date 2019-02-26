@@ -34,14 +34,19 @@ const maptStateToProps = ({ firebase, firestore }) => {
 
 export default compose(
   connect(maptStateToPropsBefore),
-  firestoreConnect( ({ page }) => [{
-    collection: 'tracks',
-    orderBy: ['published', 'desc'],
-    where: [
-      ['status', '==', 'published'],
-    ],
-    limit: page * 30,
-    storeAs: 'currentPlaylist',
-  }]),
+  firestoreConnect( ({ page }) => {
+    const oneMonthAgoUnix = new Date() - 2592000000
+    console.log(oneMonthAgoUnix)
+    return [{
+      collection: 'tracks',
+      orderBy: ['publishedTimestamp', 'desc'],
+      where: [
+        ['publishedTimestamp', '>=', String(oneMonthAgoUnix)],
+        ['status', '==', 'published'],
+      ],
+      limit: page * 30,
+      storeAs: 'currentPlaylist',
+    }]
+  }),
   connect(maptStateToProps),
 )(HomeContainer);
